@@ -1,5 +1,6 @@
 const main = () => {
-  document.querySelector('h1').textContent += '?'
+  document.querySelector('.top-left').addEventListener('click', topLeftClicked)
+
 }
 
 document.addEventListener('DOMContentLoaded', main)
