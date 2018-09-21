@@ -4,7 +4,10 @@
 // determine if odd or even click
 // if odd assign the value of X
 // if even assign the value of O
-// change the TD text content to either X or O
+// change the 'td' text content to either X or O
+//   make it go to the correct box
+//   somehow select each box and update text content when clicked
+//     listen for click for each individual box
 // do this 4 times
 // give a value of 1 to x
 // give a value of -1 to o
@@ -33,7 +36,8 @@
 // o won
 //
 // if neither are true its a tie
-//
+// select the element on the DOM add winner results
+// add check winner results to the DOM => textContent to h2
 
 // log click count
 // if odd = x
