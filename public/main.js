@@ -46,9 +46,10 @@
 //    if click count / 2 = y
 // add text content to DOM
 //
-let mainBoard = []
-const playerOne = 'O'
-const playerTwo = 'X'
+let clickCount = 0
+let mainBoard
+const playerOne = 'x'
+const playerTwo = 'o'
 const winCombos = [
   ['one', 'two', 'three'],
   ['four', 'five', 'six'],
@@ -73,9 +74,19 @@ const playerClick = (square) => {
   turn(square.target.id, playerOne)
 }
 
+const turn = (squareID, player) => {
+  mainBoard[squareID] = player
+  document.getElementById(squareID).innerText = player
+}
+
 
 
 const main = () => {
+  document.querySelector('.sandbox').addEventListener('click', () => {
+    clickCount++
+    console.log(clickCount)
+  })
+
   document.querySelector('.replay-button').addEventListener('click', () => {
     document.location = '/'
   })
