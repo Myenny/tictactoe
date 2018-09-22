@@ -1,4 +1,4 @@
-// listen for a click
+// listen for a click === done
 // assign click count to 0
 // count that click
 // determine if odd or even click
@@ -46,33 +46,41 @@
 //    if click count / 2 = y
 // add text content to DOM
 //
+let mainBoard = []
+const playerOne = 'O'
+const playerTwo = 'X'
+const winCombos = [
+  ['one', 'two', 'three'],
+  ['four', 'five', 'six'],
+  ['seven', 'eight', 'nine'],
+  ['one', 'four', 'seven'],
+  ['two', 'five', 'eight'],
+  ['three', 'six', 'nine'],
+  ['one', 'five', 'nine'],
+  ['three', 'five', 'seven']
+]
 
+let box = document.querySelectorAll('.box')
 
+let newGame = () => {
+  mainBoard = Array.from(Array(9).keys())
+  for (let i = 0; i < box.length; i++) {
+    box[i].addEventListener('click', playerClick, false)
+  }
+}
 
-const playerSelected = () => {
-  console.log('clicked')
+const playerClick = (square) => {
+  turn(square.target.id, playerOne)
 }
 
 
 
 const main = () => {
-  document.querySelector('.one').addEventListener('click', playerSelected)
+  document.querySelector('.replay-button').addEventListener('click', () => {
+    document.location = '/'
+  })
 
-  document.querySelector('.two').addEventListener('click', playerSelected)
-
-  document.querySelector('.three').addEventListener('click', playerSelected)
-
-  document.querySelector('.four').addEventListener('click', playerSelected)
-
-  document.querySelector('.five').addEventListener('click', playerSelected)
-
-  document.querySelector('.six').addEventListener('click', playerSelected)
-
-  document.querySelector('.seven').addEventListener('click', playerSelected)
-
-  document.querySelector('.eight').addEventListener('click', playerSelected)
-
-  document.querySelector('.nine').addEventListener('click', playerSelected)
+  newGame()
 
 }
 
