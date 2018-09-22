@@ -3,8 +3,9 @@ let clickCount = 0
 let mainBoard
 // let playerOneValue = []
 // let playerTwoValue = []
-const playerOne = { letter: 'o', value: 1 }
-const playerTwo = { letter: 'x', value: -1 }
+let playerClickCount = 0
+const playerOne = 'x'
+const playerTwo = 'o'
 const winCombos = [
   ['one', 'two', 'three'],
   ['four', 'five', 'six'],
@@ -106,12 +107,12 @@ let newGame = () => {
 }
 
 const playerClick = (square) => {
-  if (clickCount === 1 || clickCount === 3 || clickCount === 5 ||
-    clickCount === 7 || clickCount === 9 || clickCount === 11 || clickCount === 13 ||
-    clickCount === 15 || clickCount === 17 || clickCount === 19) {
-    turn(square.target.id, playerOne.letter)
+  if (playerClickCount === 0) {
+    turn(square.target.id, playerOne)
+    playerClickCount = 1
   } else {
-    turn(square.target.id, playerTwo.letter)
+    turn(square.target.id, playerTwo)
+    playerClickCount = 0
   }
 }
 
@@ -121,38 +122,6 @@ const turn = (squareID, player) => {
   document.getElementById(squareID).removeEventListener('click', playerClick)
   checkWinner()
 }
-
-// const checkWinner = () => {
-//   if (winCombos[0] === 3 ||
-//     winCombos[1] === 3 ||
-//     winCombos[2] === 3 ||
-//     winCombos[3] === 3 ||
-//     winCombos[4] === 3 ||
-//     winCombos[5] === 3 ||
-//     winCombos[6] === 3) {
-//     document.querySelector('.game-decision').textContent = 'Player One Wins!'
-//   }
-// 
-//   if (winCombos[0] === 3 ||
-//     winCombos[1] === 3 ||
-//     winCombos[2] === 3 ||
-//     winCombos[3] === 3 ||
-//     winCombos[4] === 3 ||
-//     winCombos[5] === 3 ||
-//     winCombos[6] === 3) {
-//     document.querySelector('.game-decision').textContent = 'Player Two Wins!'
-//   }
-// 
-//   if (winCombos[0] !== 3 ||
-//     winCombos[1] !== 3 ||
-//     winCombos[2] !== 3 ||
-//     winCombos[3] !== 3 ||
-//     winCombos[4] !== 3 ||
-//     winCombos[5] !== 3 ||
-//     winCombos[6] !== 3) {
-//     document.querySelector('.game-decision').textContent = 'It is a draw. You both suck!'
-//   }
-// }
 
 const main = () => {
   document.querySelector('.sandbox').addEventListener('click', () => {
