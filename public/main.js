@@ -87,7 +87,7 @@ const playerTwoWinCondition = () => {
 
 let checkDraw = () => {
   if (mainBoard.one && mainBoard.two && mainBoard.three && mainBoard.four && mainBoard.five && mainBoard.six && mainBoard.seven && mainBoard.eight && mainBoard.nine !== '') {
-    document.querySelector('.game-decision').textContent = 'Draw. You both suck!'
+    document.querySelector('.game-decision').textContent = 'Draw. You both lose!'
   }
 }
 
