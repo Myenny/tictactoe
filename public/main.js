@@ -71,7 +71,8 @@ let newGame = () => {
 }
 
 const playerClick = (square) => {
-  if (clickCount === 1 || clickCount === 3 || clickCount === 5 || clickCount === 7 || clickCount === 9) {
+  if (clickCount === 1 || clickCount === 3 || clickCount === 5 ||
+    clickCount === 7 || clickCount === 9) {
     turn(square.target.id, playerOne)
   } else {
     turn(square.target.id, playerTwo)
