@@ -48,8 +48,8 @@
 //
 let clickCount = 0
 let mainBoard
-const playerOne = 'x'
-const playerTwo = 'o'
+const playerOne = 'o'
+const playerTwo = 'x'
 const winCombos = [
   ['one', 'two', 'three'],
   ['four', 'five', 'six'],
@@ -71,7 +71,11 @@ let newGame = () => {
 }
 
 const playerClick = (square) => {
-  turn(square.target.id, playerOne)
+  if (clickCount === 1 || clickCount === 3 || clickCount === 5 || clickCount === 7 || clickCount === 9) {
+    turn(square.target.id, playerOne)
+  } else {
+    turn(square.target.id, playerTwo)
+  }
 }
 
 const turn = (squareID, player) => {
